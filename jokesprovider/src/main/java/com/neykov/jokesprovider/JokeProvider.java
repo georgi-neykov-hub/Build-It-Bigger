@@ -1,4 +1,5 @@
 package com.neykov.jokesprovider;
 
-public class JokeProvider {
+public interface JokeProvider {
+    Joke getJoke();
 }
