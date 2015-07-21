@@ -4,6 +4,9 @@ android {
     compileSdkVersion 22
     buildToolsVersion "22.0.1"
 
+    def TYPE_STRING = "String"
+    def FIELD_BACKEND_ROOT_HOST = "BACKEND_URL_HOST"
+
     defaultConfig {
         applicationId "com.udacity.gradle.builditbigger"
         minSdkVersion 10
@@ -11,18 +14,35 @@ android {
         versionCode 1
         versionName "1.0"
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField TYPE_STRING, FIELD_BACKEND_ROOT_HOST, "\"http://10.0.2.2:8080\""
+        }
+
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField TYPE_STRING, FIELD_BACKEND_ROOT_HOST, "\"http://10.0.2.2:8080\""
+        }
+    }
+
+    productFlavors {
+        free {
+            applicationId "com.udacity.gradle.builditbigger.free"
+        }
+
+        paid {
+            applicationId "com.udacity.gradle.builditbigger.paid"
         }
     }
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    // Added for AdMob
-    compile 'com.android.support:appcompat-v7:22.2.0'
-    compile 'com.google.android.gms:play-services:7.5.0'
     compile project(path: ':backend', configuration: 'android-endpoints')
+    compile 'com.android.support:appcompat-v7:22.2.0'
+    freeCompile 'com.google.android.gms:play-services-ads:7.5.0'
 }

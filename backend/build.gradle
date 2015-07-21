@@ -6,7 +6,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.google.appengine:gradle-appengine-plugin:1.9.18'
+        classpath 'com.google.appengine:gradle-appengine-plugin:1.9.19'
     }
 }
 
@@ -26,6 +26,7 @@ dependencies {
     compile 'com.google.appengine:appengine-endpoints:1.9.18'
     compile 'com.google.appengine:appengine-endpoints-deps:1.9.18'
     compile 'javax.servlet:servlet-api:2.5'
+    compile project(':jokesprovider')
 }
 
 appengine {
