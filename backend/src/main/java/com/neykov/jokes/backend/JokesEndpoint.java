@@ -33,7 +33,7 @@ public class JokesEndpoint {
     /**
      * A simple endpoint method that takes a name and says Hi back
      */
-    @ApiMethod(name = "getRandomJoke")
+    @ApiMethod(name = "getRandomJoke", httpMethod = "get")
     public Joke getRandomJoke() {
         Joke joke = provider.getJoke();
         return joke;

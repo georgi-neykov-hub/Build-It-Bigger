@@ -1,6 +1,9 @@
 package com.neykov.jokesprovider;
 
-public abstract class Joke {
+import java.io.Serializable;
+
+public abstract class Joke implements Serializable {
+
     private final String bodyText;
 
     protected Joke(String bodyText) {
