@@ -17,3 +17,18 @@ allprojects {
         jcenter()
     }
 }
+
+task runDevServerAndExecuteTests(dependsOn:
+        [':backend:appengineRun',
+         ':app:connectedCheck']){
+
+    group 'runTests'
+    description 'Starts a local development AppEngine server and executes any Android tests.'
+
+    finalizedBy ':backend:appengineStop'
+
+    doFirst{
+        println 'Starting dev server and instrumentation tests.'
+    }
+}
+
