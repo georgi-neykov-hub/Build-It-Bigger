@@ -1,4 +1,4 @@
-package com.udacity.gradle.builditbigger.instrumentation;
+package com.udacity.gradle.builditbigger;
 
 import android.test.SupportLoaderTestCase;
 
@@ -11,6 +11,9 @@ import junit.framework.Assert;
 public class JokeLoaderTest extends SupportLoaderTestCase{
 
     private JokeLoader loader;
+
+    public JokeLoaderTest() {
+    }
 
     @Override
     protected void setUp() throws Exception {

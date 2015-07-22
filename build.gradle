@@ -19,8 +19,7 @@ allprojects {
 }
 
 task runDevServerAndExecuteTests(dependsOn:
-        [':backend:appengineRun',
-         ':app:connectedCheck']){
+        [':app:test', ':backend:appengineRun']){
 
     group 'runTests'
     description 'Starts a local development AppEngine server and executes any Android tests.'
@@ -30,5 +29,12 @@ task runDevServerAndExecuteTests(dependsOn:
     doFirst{
         println 'Starting dev server and instrumentation tests.'
     }
+
 }
+
+
+tasks.getByPath(':app:test').mustRunAfter tasks.getByPath(':backend:appengineRun')
+tasks.getByPath(':backend:appengineStop').mustRunAfter tasks.getByPath(':app:test')
+
+
 
