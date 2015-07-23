@@ -11,6 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.udacity.gradle.builditbigger.jokesdisplay.JokeDisplayActivity;
+
 public class MainActivityFragment extends Fragment implements View.OnClickListener, LoaderManager.LoaderCallbacks<LoaderResult<String>> {
 
     private static final int LOADER_ID = 1;
